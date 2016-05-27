@@ -27,3 +27,10 @@ The Early Warning System (EWS) tables exist in the Custom schema. The schema was
 | Days_of_OSS      | Int     | n/a         | Total number of days on OSS in a given term;                                                                                       |       |
 | Num_of_Incidents | Int     | n/a         | Total number of incidents, regardless of type (except Attendance Intervention) or whether a penalty was assigned, in a given term; |       |
 | Num_of_Referral  | Int     | n/a         | Total number of referrals, regardless of type or whether a penalty was assigned, in a given term;                                  |       |
+
+##[Early_Warning_GPA](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_GPA.sql)
+| Field          | Type     | Key | Description                   | Notes |
+|----------------|----------|-----|-------------------------------|-------|
+| Student_Number | Int      |     |                               |       |
+| TermKEY        | Int      |     |                               |       |
+| GPA            | Float(5) |     | Add a definition/caveats here |       |
