@@ -34,3 +34,13 @@ The Early Warning System (EWS) tables exist in the Custom schema. The schema was
 | Student_Number | Int      |     |                               |       |
 | TermKEY        | Int      |     |                               |       |
 | GPA            | Float(5) |     | Add a definition/caveats here |       |
+
+##[Early_Warning_Grades](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_Grades.sql)
+| Field           | Type        | Key | Description                                       | Notes |
+|-----------------|-------------|-----|---------------------------------------------------|-------|
+| Student_Number  | Int         |     |                                                   |       |
+| StudentID       | Int         |     |                                                   |       |
+| StudentKEY      | Int         |     |                                                   |       |
+| SystemStudentID | Varchar(25) |     |                                                   |       |
+| TermKEY         | Int         |     |                                                   |       |
+| Num_Ds_AND_Fs   | Int         |     | Total number of D's or F's earned in a given term |       |
