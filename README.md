@@ -3,14 +3,24 @@ The Early Warning System (EWS) tables exist in the Custom schema. The schema was
 
 ##[Early_Warning_Attendance](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_Attendance.sql)
 
-Field | Type | Key | Description | Notes
------|----|---|-----------|-----
-Student_Number | Float | Foreign Key | Join to Powerschool.Powerschool_Students | 
-StudentKEY | Int | Foreign Key | Join to dw.DW_DimStudent |
-StudentID | Int | Foreign KEY | Join directly to PS tables with student data with using Powerschool_Students as intermediary |
-SystemStudentID | Varchar | Foreign Key |  |
-TermKEY | Int | Foreign Key | Join to Custom_Early_Warning_Terms; |
-Absences | Int | n/a | Total number of absences in a given term; |
-Membership | Int | n/a | Total number of days enrolled in a given term |
-Unexcused_Absences | Int | n/a | Total number of unexcused absences in a term;| |
-Tardies | Int | n/a | Total number of tardies in a term;|
+| Field           | Type    | Key         | Description                                  | Notes |
+|-----------------|---------|-------------|----------------------------------------------|-------|
+|Student_Number   | Float   | Foreign Key | Join to Powerschool.Powerschool_Students     |       | 
+|StudentKEY       | Int     | Foreign Key | Join to dw.DW_DimStudent                     |       | 
+|StudentID        | Int     | Foreign KEY | Join directly to PS tables with student data with using Powerschool_Students as                                                                                                 intermediary|
+|SystemStudentID  | Varchar | Foreign Key |                                              |       |
+|TermKEY          | Int     | Foreign Key | Join to Custom_Early_Warning_Terms;          |       |  
+|Absences         | Int     |             | Total number of absences in a given term;    |       |
+|Membership   	  | Int     |             | Total number of days enrolled in a given term|       |
+|Unexcused_Absences| Int    |             | Total number of unexcused absences in a term;|       |
+|Tardies 				  | Int     | n/a         | Total number of tardies in a term;					 |			 |
+
+##[Early_Warning_Behavior](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_Behavior.sql)
+| Field           | Type    | Key         | Description                                  | Notes |
+|-----------------|---------|-------------|----------------------------------------------|-------|
+| Student_Number  | Float   | Foreign Key | Join to Powerschool.Powerschool_Students     |       |
+| StudentKEY      | Int     | Foreign Key | Join to dw.DW_DimStudent                     |       |
+| StudentID       | Int     | Foreign KEY | Join directly to PS tables with student data |       |
+| SystemStudentID | Varchar | Foreign Key |                                              |       |
+| TermKEY         | Int     | Foreign Key | Join to Custom_Early_Warning_Terms;          |       |
+| Count_OSS       | Int     | n/a         | Total number of OSS in a given term;         |       |
