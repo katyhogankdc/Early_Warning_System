@@ -16,11 +16,14 @@ The Early Warning System (EWS) tables exist in the Custom schema. The schema was
 |Tardies 				  | Int     | n/a         | Total number of tardies in a term;					 |			 |
 
 ##[Early_Warning_Behavior](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_Behavior.sql)
-| Field           | Type    | Key         | Description                                  | Notes |
-|-----------------|---------|-------------|----------------------------------------------|-------|
-| Student_Number  | Float   | Foreign Key | Join to Powerschool.Powerschool_Students     |       |
-| StudentKEY      | Int     | Foreign Key | Join to dw.DW_DimStudent                     |       |
-| StudentID       | Int     | Foreign KEY | Join directly to PS tables with student data |       |
-| SystemStudentID | Varchar | Foreign Key |                                              |       |
-| TermKEY         | Int     | Foreign Key | Join to Custom_Early_Warning_Terms;          |       |
-| Count_OSS       | Int     | n/a         | Total number of OSS in a given term;         |       |
+| Field            | Type    | Key         | Description                                                                                                                        | Notes |
+|------------------|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------|-------|
+| Student_Number   | Float   | Foreign Key | Join to Powerschool.Powerschool_Students                                                                                           |       |
+| StudentKEY       | Int     | Foreign Key | Join to dw.DW_DimStudent                                                                                                           |       |
+| StudentID        | Int     | Foreign KEY | Join directly to PS tables with student data                                                                                       |       |
+| SystemStudentID  | Varchar | Foreign Key |                                                                                                                                    |       |
+| TermKEY          | Int     | Foreign Key | Join to Custom_Early_Warning_Terms;                                                                                                |       |
+| Count_OSS        | Int     | n/a         | Total number of OSS in a given term;                                                                                               |       |
+| Days_of_OSS      | Int     | n/a         | Total number of days on OSS in a given term;                                                                                       |       |
+| Num_of_Incidents | Int     | n/a         | Total number of incidents, regardless of type (except Attendance Intervention) or whether a penalty was assigned, in a given term; |       |
+| Num_of_Referral  | Int     | n/a         | Total number of referrals, regardless of type or whether a penalty was assigned, in a given term;                                  |       |
