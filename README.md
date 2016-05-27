@@ -9,8 +9,8 @@ Student_Number | Float | Foreign Key | Join to Powerschool.Powerschool_Students 
 StudentKEY | Int | Foreign Key | Join to dw.DW_DimStudent |
 StudentID | Int | Foreign KEY | Join directly to PS tables with student data with using Powerschool_Students as intermediary |
 SystemStudentID | Varchar | Foreign Key |  |
-TermKEY | Int | Foreign Key | Join to Custom_Early_Warning_Terms; |CAST(CAST(POWERSCHOOL.POWERSCHOOL_TERMS.ID AS VARCHAR) CAST(E.SCHOOLID AS VARCHAR) AS INT)
-Absences | Int | n/a | Total number of absences in a given term; | CASE WHEN POWERSCHOOL.POWERSCHOOL_ATTENDANCE_CODE.PRESENCE_STATUS_CD = 'Absent' THEN 1 ELSE 0 END
+TermKEY | Int | Foreign Key | Join to Custom_Early_Warning_Terms; |
+Absences | Int | n/a | Total number of absences in a given term; |
 Membership | Int | n/a | Total number of days enrolled in a given term |
-Unexcused_Absences | Int | n/a | Total number of unexcused absences in a term;| CASE WHEN POWERSCHOOL.POWERSCHOOL_ATTENDANCE_CODE.DESCRIPTION IN ('Absent','Medical Unexcused','Tardy Absent','Released Early Absent') THEN 1 ELSE 0 END |
-Tardies | Int | n/a | Total number of tardies in a term;| CASE WHEN POWERSCHOOL.POWERSCHOOL_ATTENDANCE_CODE.DESCRIPTION IN ('Tardy','Tardy Excused','Tardy Released Early') THEN 1 ELSE 0 END
+Unexcused_Absences | Int | n/a | Total number of unexcused absences in a term;| |
+Tardies | Int | n/a | Total number of tardies in a term;|
