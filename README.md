@@ -12,6 +12,15 @@ When creating a view a term must be selected in a filter or added to the view, o
 ###Tables
 ####Fact
 This table includes the measures for each domain and Keys for connecting to other tables. The Fact and Dimension tables can be joined using an **inner join** on the dimension key. There is one record for each student and term in the table.
+
+The assessment growth value depends on the term (or season) of the record. The table below outlines which growth values correspond to each term.
+
+| Term               | F2F | F2W | F2S | W2W | W2S | S2S |
+|--------------------|-----|-----|-----|-----|-----|-----|
+| Fall               | Yes |     |     |     |     |     |
+| Winter             |     | Yes |     | Yes |     |     |
+| Spring (not added) |     |     | Yes |     | Yes | Yes |
+
 ####DimStudent
 This DimStudent table includes dimension values related to student attributes. All values represent a students **current** status. There is no historical information in this table. For example, the school in the SchoolName field is the school in which the student is currently enrolled.
 ####DimTerms
