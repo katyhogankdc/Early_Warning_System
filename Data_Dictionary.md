@@ -25,6 +25,22 @@
 | WindowCGI_Math (Reading)  | Float   |             | NWEA MAP Math (Reading) conditional growth index | See growth definitions table                                |
 | WindowGP_Math (Reading)   | Int     |             | NWEA MAP Math (Reading) growth percentile        | See growth definitions table                                |
 
+[Early_Warning_DimTerms](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_DimTerms.sql)
+
+| Field        | Type        | Key         | Description                                              | Notes                      |
+|--------------|-------------|-------------|----------------------------------------------------------|----------------------------|
+| TERMKEY      | int         | Primary Key | Combination of TermID and SchoolID                       |                            |
+| TERMID       | int         |             | ID from Powerschool Terms Table                          |                            |
+| TERMNAME     | varchar(40) |             | Name from Powerschool Terms table                        |                            |
+| YEARID       | int         |             | YearID from Powerschool                                  |                            |
+| ABBREVIATION | varchar(10) |             | Shortened TermName                                       |                            |
+| COMMONTERM   | int         |             | Integer between 1 and 6 for comparing terms across years | see term definitions table |
+| SCHOOLID     | int         |             | Powerschool SchoolID                                     |                            |
+| FIRSTDAY     | date        |             | First day of the term                                    |                            |
+| LASTDAY      | date        |             | Last day of the term                                     |                            |
+| SEASON       | varchar(10) |             | Fall, winter, spring - corresponds to testing windows    | see term definitions table |
+
+
 ###Staged Tables
 [Early_Warning_Attendance](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Attendance.sql)
 
