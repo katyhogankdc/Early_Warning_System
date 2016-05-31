@@ -1,5 +1,8 @@
+###Fact and Dim Tables
 
-##[Early_Warning_Attendance](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Attendance.sql)
+
+###Staged Tables
+[Early_Warning_Attendance](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Attendance.sql)
 
 | Field           | Type    | Key         | Description                                  | Notes |
 |-----------------|---------|-------------|----------------------------------------------|-------|
@@ -13,7 +16,8 @@
 |Unexcused_Absences| Int    |             | Total number of unexcused absences in a term;|       |
 |Tardies 				  | Int     | n/a         | Total number of tardies in a term;					 |			 |
 
-##[Early_Warning_Behavior](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Behavior.sql)
+[Early_Warning_Behavior](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Behavior.sql)
+
 | Field            | Type    | Key         | Description                                                                                                                        | Notes |
 |------------------|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------|-------|
 | Student_Number   | Float   | Foreign Key | Join to Powerschool.Powerschool_Students                                                                                           |       |
@@ -26,14 +30,16 @@
 | Num_of_Incidents | Int     | n/a         | Total number of incidents, regardless of type (except Attendance Intervention) or whether a penalty was assigned, in a given term; |       |
 | Num_of_Referral  | Int     | n/a         | Total number of referrals, regardless of type or whether a penalty was assigned, in a given term;                                  |       |
 
-##[Early_Warning_GPA](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_GPA.sql)
+[Early_Warning_GPA](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_GPA.sql)
+
 | Field          | Type     | Key | Description                   | Notes |
 |----------------|----------|-----|-------------------------------|-------|
 | Student_Number | Int      |     |                               |       |
 | TermKEY        | Int      |     |                               |       |
 | GPA            | Float(5) |     | Add a definition/caveats here |       |
 
-##[Early_Warning_Grades](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Grades.sql)
+[Early_Warning_Grades](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Grades.sql)
+
 | Field           | Type        | Key | Description                                       | Notes |
 |-----------------|-------------|-----|---------------------------------------------------|-------|
 | Student_Number  | Int         |     |                                                   |       |
