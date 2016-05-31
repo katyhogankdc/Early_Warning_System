@@ -1,5 +1,29 @@
 ###Fact and Dim Tables
+[Early_Warning_Fact](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_Fact.sql)
 
+| Field                     | Type    | Key         | Description                                      | Notes                                                       |
+|---------------------------|---------|-------------|--------------------------------------------------|-------------------------------------------------------------|
+| Student_Number            | Int     | Foreign Key |                                                  |                                                             |
+| StudentID                 | Int     | Foreign Key |                                                  |                                                             |
+| StudentKey                | Int     | Foreign Key |                                                  |                                                             |
+| SystemStudentID           | Varchar | Foreign Key |                                                  |                                                             |
+| TermKey                   | Int     | Foreign Key |                                                  |                                                             |
+| Absences                  | Int     |             | Total absences in a given term                   |                                                             |
+| Memebership               | Int     |             | Total days of enrollment in a given term         |                                                             |
+| Unexcused_Absences        | Int     |             | Total unexcused absences in given term           |                                                             |
+| Tardies                   | Int     |             | Total tardies in a given term                    |                                                             |
+| Count_OSS                 | Int     |             | Total number of OSS in a given term              |                                                             |
+| Days_Of_OSS               | Int     |             | Total days on OSS in a given term                |                                                             |
+| Num_Of_Incidents          | Int     |             | Total number of incidents in a given term        |                                                             |
+| Num_Of_Referrals          | Int     |             | Total number of referrals in a given term        |                                                             |
+| GPA                       | Float   |             | Term GPA form PS                                 |                                                             |
+| Num_Ds_And_Fs             | Int     |             | Total number of Ds and Fs earned in a given term |                                                             |
+| ScaleScore_Math (Reading) | Int     |             | NWEA MAP Math (Reading) scale score              | See term definitions for testing window to term assignments |
+| Percentile_Math (Reading) | Int     |             | NWEA MAP Math (Reading) percentile score         | See term definitions for testing window to term assignments |
+| AnnualCGI_Math (Reading)  | Float   |             | NWEA MAP Math (Reading) conditional growth index | See growth definitions table                                |
+| AnnualGP_Math (Reading)   | Int     |             | NWEA MAP Math (Reading) growth percentile        | See growth definitions table                                |
+| WindowCGI_Math (Reading)  | Float   |             | NWEA MAP Math (Reading) conditional growth index | See growth definitions table                                |
+| WindowGP_Math (Reading)   | Int     |             | NWEA MAP Math (Reading) growth percentile        | See growth definitions table                                |
 
 ###Staged Tables
 [Early_Warning_Attendance](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Attendance.sql)
