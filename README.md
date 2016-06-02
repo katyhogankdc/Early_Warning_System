@@ -19,7 +19,7 @@ The assessment growth value depends on the term (or season) of the record. The t
 |--------------------|-----|-----|-----|-----|-----|-----|
 | Fall               | Yes |     |     |     |     |     |
 | Winter             |     | Yes |     | Yes |     |     |
-| Spring (not added) |     |     | Yes |     | Yes | Yes |
+| Spring (not added) |     |     | Yes |     |     | Yes |
 
 ####DimStudent
 This DimStudent table includes dimension values related to student attributes. All values represent a students **current** status. There is no historical information in this table. For example, the school in the SchoolName field is the school in which the student is currently enrolled.
