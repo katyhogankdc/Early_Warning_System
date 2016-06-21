@@ -24,6 +24,10 @@
 | AnnualGP_Math (Reading)   | Int     |             | NWEA MAP Math (Reading) growth percentile        | See growth definitions table                                |
 | WindowCGI_Math (Reading)  | Float   |             | NWEA MAP Math (Reading) conditional growth index | See growth definitions table                                |
 | WindowGP_Math (Reading)   | Int     |             | NWEA MAP Math (Reading) growth percentile        | See growth definitions table                                |
+| STEP_Level                | Int     |             | STEP Level from -1 to 12                         |                                                             |
+| STEP_Proficiency          | Varchar |             | Above/At/Below grade level                       |                                                             |
+| FP Level                  | Int     |             | F&P levels represented with integers A=1, B=2, etc.|                                                           |
+| Target Level              | Int     |             | Based on month and grade level of student        | See  CUSTOM_EARLY_WARNING_F_AND_P_PROFICIENCY               |
 
 [Early_Warning_DimStudents](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_DimStudent.sql)
 
