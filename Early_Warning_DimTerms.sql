@@ -22,8 +22,8 @@ CASE
 	WHEN SUB.[COMMON TERM] = 0 THEN 'Summer'
 	WHEN SUB.[COMMON TERM] = 1 THEN 'Fall'
 	WHEN SUB.[COMMON TERM] = 2 THEN 'Winter'
-	WHEN SUB.[COMMON TERM] >= 4 THEN 'Spring'
-	ELSE NULL END 'SEASON'
+	WHEN SUB.[COMMON TERM] = 4 THEN 'Spring' -- 7/11/16 -- changed from ">=" 4 to "=" 4 so that spring assessment scores are only assigned to the spring term not the full year terms as well
+	ELSE '-----' END 'SEASON'
 FROM (
 SELECT
 CAST(CAST(T.ID AS VARCHAR) + CAST(T.SCHOOLID AS VARCHAR) AS INT) AS TERMKEY,
@@ -31,8 +31,6 @@ T.ID AS TERMID,
 T.NAME AS TERMNAME,
 T.YEARID AS YEARID,
 T.ABBREVIATION AS ABBREVIATION,
---TERMRANK,
---FIGURE OUT WHAT TERM THE SY WITHOUT SUMMER SHOULD BE (IF ANYTHING)
 CASE -- THIS ASSIGNS A UNIFORM TERM CODE (0 THROUGH 5) WHETHER IT IS TRIMESTERS OR QUARTERS
 	WHEN NAME LIKE '%Summer%' THEN 0 --ALWAYS MAKE THE SUMMER 0
 	WHEN T.ID LIKE '%00' THEN 6 --ALWAYS MAKE THE FULL YEAR TERM 6 (INCLUDING SUMMER)
@@ -66,7 +64,7 @@ JOIN (SELECT --use the rank values to determine the common term values
 		FROM POWERSCHOOL.POWERSCHOOL_TERMS 
 		WHERE DATEDIFF(DAY,FIRSTDAY,LASTDAY)>7
 	  ) T_RANK ON T_RANK.SCHOOLID = T.SCHOOLID AND T_RANK.ID = T.ID
-WHERE T.SCHOOLID >= 1000 --exclude alumni school
+WHERE T.SCHOOLID not in (999999,2001) --exclude alumni school, and NPP
 AND T.ID >= 2000 --only include 10-11 school year and after
 AND NOT (T.SCHOOLID = 1100 AND T.NAME LIKE 'Semester%') --do not inlcude sememster terms for KCP, they are not real terms just used for rolling up grades
 ) SUB --only include 2010 to present to simplify term transformation - could go back to 2006 if necessary
@@ -75,4 +73,5 @@ AND NOT (T.SCHOOLID = 1100 AND T.NAME LIKE 'Semester%') --do not inlcude sememst
 
 /*add a row of termkey -1 so you don't drop records on with an inner join*/
 INSERT INTO CUSTOM.CUSTOM_EARLY_WARNING_TERMS
-VALUES(-1,-1,NULL,-1,NULL,-1,-1,'01-01-1900','01-01-1900',NULL);
+VALUES(-1,-1,'-----',-1,'-----',-1,-1,'01-01-1900','01-01-1900','-----');
+
