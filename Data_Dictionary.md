@@ -82,6 +82,20 @@
 | Termkey        | int     | Foreign Key |                                                                     |       |
 
 
+[Early_Warning_Assessment_Scores_Math/Reading](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Assessment_Scores.sql)
+| Field           | Type    | Key         | Description                          | Notes |
+|-----------------|---------|-------------|--------------------------------------|-------|
+| Student_Number  | int     | Foreign key |                                      |       |
+| Studentid       | int     | Foreign key |                                      |       |
+| Systemstudentid | varchar |             |                                      |       |
+| Studentkey      | int     | Foreign key |                                      |       |
+| Scalescore      | int     |             | RIT Score                            |       |
+| Percentilescore | int     |             | RIT Percentile                       |       |
+| Testperiod      | varchar |             | Fall, Winter, Spring                 |       |
+| Testdate        | date    |             |                                      |       |
+| Testsubject     | varchar |             | Mathematics, Reading, Language Usage |       |
+| Termkey         | int     | Foreign key |                                      |       |
+
 [Early_Warning_Attendance](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Attendance.sql)
 
 | Field           | Type    | Key         | Description                                  | Notes |
