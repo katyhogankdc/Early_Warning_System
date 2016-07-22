@@ -126,6 +126,19 @@
 | Num_of_Incidents | Int     | n/a         | Total number of incidents, regardless of type (except Attendance Intervention) or whether a penalty was assigned, in a given term; |       |
 | Num_of_Referral  | Int     | n/a         | Total number of referrals, regardless of type or whether a penalty was assigned, in a given term;                                  |       |
 
+[Early_Warning_FP](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_FP.sql)
+
+| Field           | Type    | Key         | Description                                         | Notes |
+|-----------------|---------|-------------|-----------------------------------------------------|-------|
+| Student_Number  | int     | Foreign key |                                                     |       |
+| Studentid       | int     |             |                                                     |       |
+| Studentkey      | int     |             |                                                     |       |
+| Systemstudentid | varchar |             |                                                     |       |
+| Termkey         | int     | Foreign key |                                                     |       |
+| FP Level        | int     |             | Integer equivalent of actual level (A=1, B=2, C=3…) |       |
+| Target Level    | int     |             | Integer equivalent of level target (A=1, B=2, C=3…) |       |
+
+
 [Early_Warning_GPA](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_GPA.sql)
 
 | Field          | Type     | Key | Description                   | Notes |
