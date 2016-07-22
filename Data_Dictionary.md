@@ -64,6 +64,24 @@
 
 
 ###Staged Tables
+
+[Early_Warning_Assessment_Growth_Math](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Assessment_Growth_Math.sql)
+
+| Field          | Type    | Key         | Description                                                         | Notes |
+|----------------|---------|-------------|---------------------------------------------------------------------|-------|
+| Student_Number | int     | Foreign Key |                                                                     |       |
+| Testsubject    | varchar |             |                                                                     |       |
+| Testperiod     | varchar |             |                                                                     |       |
+| Yearid         | int     |             |                                                                     |       |
+| Testdate       | date    |             |                                                                     |       |
+| Annual_CGI     | real    |             | Annual Conditional Growth Index (i.e. S2S, W2W, F2F)                |       |
+| Annual_GP      | int     |             | Annual Conditional Growth Percentile (i.e. S2S, W2W, F2F)           |       |
+| Window_CGI     | real    |             | Window to Window Conditional Growth Index (i.e. F2S, F2W, W2S)      |       |
+| Window_GP      | int     |             | Window to Window Conditional Growth Percentile (i.e. F2S, F2W, W2S) |       |
+| School_Number  | int     |             |                                                                     |       |
+| Termkey        | int     | Foreign Key |                                                                     |       |
+
+
 [Early_Warning_Attendance](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Attendance.sql)
 
 | Field           | Type    | Key         | Description                                  | Notes |
