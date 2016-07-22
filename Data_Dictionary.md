@@ -65,7 +65,7 @@
 
 ###Staged Tables
 
-[Early_Warning_Assessment_Growth_Math](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Assessment_Growth_Math.sql)
+[Early_Warning_Assessment_Growth_Math/Reading](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_Assessment_Growth.sql)
 
 | Field          | Type    | Key         | Description                                                         | Notes |
 |----------------|---------|-------------|---------------------------------------------------------------------|-------|
