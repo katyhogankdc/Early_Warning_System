@@ -169,4 +169,23 @@ Early_Warning_F_AND_P_Proficiency*
 | TermKEY         | Int         |     |                                                   |       |
 | Num_Ds_AND_Fs   | Int         |     | Total number of D's or F's earned in a given term |       |
 
+[Early_Warning_RIT_to_Reading](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_RIT_to_Reading%20.sql)
+
+| Field             | Type    | Key | Description                       | Notes                                      |
+|-------------------|---------|-----|-----------------------------------|--------------------------------------------|
+| Termname          | Varchar |     | MAP window and year from CDF      |                                            |
+| Termkey           | int     |     |                                   |                                            |
+| Season            | Varchar |     | MAP window (fall, winter, spring) |                                            |
+| Yearid            | int     |     |                                   |                                            |
+| Student_Number    | int     |     |                                   |                                            |
+| Studentid         | int     |     |                                   |                                            |
+| Studentkey        | int     |     |                                   |                                            |
+| Teststartdate     | date    |     | date of assessment                |                                            |
+| Schoolname        | Varchar |     |                                   |                                            |
+| School_Number     | int     |     | equivalent to schoolid            |                                            |
+| Rittoreadingscore | int     |     | midpoint of lexile range          | from MAP for lower   grades and SRI for HS |
+| Rittoreadingmin   | int     |     | min of lexile range               | from   MAP for lower grades and SRI for HS |
+| Rittoreadingmax   | int     |     | max of lexile range               | from   MAP for lower grades and SRI for HS |
+
+
 *static table manually uploaded
