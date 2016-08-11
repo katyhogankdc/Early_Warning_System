@@ -139,6 +139,17 @@
 | Target Level    | int     |             | Integer equivalent of level target (A=1, B=2, C=3…) |       |
 
 
+Early_Warning_F_AND_P_Proficiency*
+
+| Field           | Type    | Key | Description                           | Notes                  |
+|-----------------|---------|-----|---------------------------------------|------------------------|
+| Grade Level     | int     |     | Grade level 0-8                       | K = 0                  |
+| Month           | int     |     | number of month                       | Starts with August = 8 |
+| F&P Level       | varchar |     | letter of level                       |                        |
+| F&P Level ASCII | int     |     | ASCII number equivalent of the letter |                        |
+| Level           | int     |     | 1-26 integer equivalent of letter     | use this for sorting   |
+
+
 [Early_Warning_GPA](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_GPA.sql)
 
 | Field          | Type     | Key | Description                   | Notes |
@@ -157,3 +168,5 @@
 | SystemStudentID | Varchar(25) |     |                                                   |       |
 | TermKEY         | Int         |     |                                                   |       |
 | Num_Ds_AND_Fs   | Int         |     | Total number of D's or F's earned in a given term |       |
+
+*static table manually uploaded
