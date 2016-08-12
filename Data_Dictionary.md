@@ -31,20 +31,29 @@
 
 [Early_Warning_DimStudents](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_DimStudent.sql)
 
-| Field               | Type         | Key         | Description                                              | Notes |
-|---------------------|--------------|-------------|----------------------------------------------------------|-------|
-| STUDENTKEY          | int          | Primary Key |                                                          |       |
-| STUDENT_NUMBER      | int          |             | Powerschool Student_Number                               |       |
-| SPED_CLASSIFICATION | varchar(100) |             | Current Special education classification                 |       |
-| SPED_FUNDING        | varchar(10)  |             | Current special education funding level                  |       |
-| HOMELESS            | int          |             | Current self-reported homeless status                    |       |
-| ELL                 | int          |             | Current ELL status                                       |       |
-| SPED                | int          |             | Current special education status (binary)                |       |
-| AGE_YEARS           | int          |             | Current Age in years                                     |       |
-| DOB                 | date         |             | Date of birth                                            |       |
-| EVER_RETAINED       | int          |             | Binary indicator for whether a student was ever retained |       |
-| ENROLLMENT_STATUS   | varchar(40)  |             | Current enrollment status                                |       |
-| SCHOOLID            | int          |             | Powerschool SchoolID                                     |       |
+| Field               | Type         | Key           | Description                                                | Notes                              |
+|---------------------|--------------|---------------|------------------------------------------------------------|------------------------------------|
+| Studentkey          | int          | Primary   Key |                                                            |                                    |
+| Student_Number      | int          |               | Powerschool   Student_Number                               |                                    |
+| Sped_Classification | varchar(100) |               | Current   Special education classification                 |                                    |
+| Sped_Funding        | varchar(10)  |               | Current   special education funding level                  |                                    |
+| Homeless            | int          |               | Current   self-reported homeless status                    |                                    |
+| Ell                 | int          |               | Current   ELL status                                       |                                    |
+| Sped                | int          |               | Current   special education status (binary)                |                                    |
+| Age_Years           | int          |               | Current   Age in years                                     |                                    |
+| Dob                 | date         |               | Date of   birth                                            |                                    |
+| Ever_Retained       | int          |               | Binary   indicator for whether a student was ever retained |                                    |
+| Enrollment_Status   | varchar(40)  |               | Current   enrollment status                                |                                    |
+| Schoolid            | int          |               | Powerschool   SchoolID                                     |                                    |
+| Schoolname          | varchar      |               |                                                            |                                    |
+| FirstName           | varchar      |               |                                                            |                                    |
+| LastName            | varchar      |               |                                                            |                                    |
+| FullName            | varchar      |               |                                                            |                                    |
+| GradeLevel_Numeric  | int          |               | grade level -2 through 12                                  | -2 = PK3, -1 = PK4, 999999 = Grad  |
+| GradeLevel          | varchar      |               | grade level text value                                     | PK3, 1st, 6th                      |
+| Homeroom            | varchar      |               | homeroom from powerschool.students.home_room               |                                    |
+| Gender              | varchar      |               |                                                            |                                    |
+| New_To_KIPP         | int          |               | binary indicator of new to kipp status                     | if not PR,DE,RE,KIPP then 1 else 0 |
 
 
 [Early_Warning_DimTerms](https://github.com/LarryKDC/Early-Warning-System/blob/master/Early_Warning_DimTerms.sql)
