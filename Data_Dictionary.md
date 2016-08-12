@@ -187,5 +187,15 @@ Early_Warning_F_AND_P_Proficiency*
 | Rittoreadingmin   | int     |     | min of lexile range               | from   MAP for lower grades and SRI for HS |
 | Rittoreadingmax   | int     |     | max of lexile range               | from   MAP for lower grades and SRI for HS |
 
+[Early_Warning_STEP](https://github.com/LarryKDC/Early-Warning-System/blob/master/Staged-Tables/Early_Warning_STEP.sql)
+
+| Field            | Type    | Key | Description                | Notes |
+|------------------|---------|-----|----------------------------|-------|
+| Student_Number   | int     |     |                            |       |
+| StudentKey       | int     |     |                            |       |
+| SystemStudentID  | int     |     |                            |       |
+| TermKey          | varchar |     |                            |       |
+| TestScore        | int     |     | Step Level from -1 to 12   |       |
+| ProficiencyLevel | varchar |     | Below, On, or Above target |       |
 
 *static table manually uploaded
