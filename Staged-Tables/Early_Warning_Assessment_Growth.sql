@@ -1,3 +1,10 @@
+/*
+The assessment growth tables are built of off [test_nweamap].[Test_NWEAMAP_MAPRawData_vX] tables.
+They will probably be replaced with 16-17 records once the new Fall files are sent to SZ
+When updating EWS after the fall window, check that these tables are not dropped first
+Eventually create a new table that has all MAP file data from all years in one table
+*/
+  
 DROP TABLE CUSTOM.CUSTOM_EARLY_WARNING_ASSESSMENT_GROWTH_MATH;
 
 CREATE TABLE CUSTOM.CUSTOM_EARLY_WARNING_ASSESSMENT_GROWTH_MATH (
@@ -13,7 +20,7 @@ WINDOW_GP INT,
 SCHOOL_NUMBER INT,
 TERMKEY INT)
 
-CREATE INDEX EW_ASSESSMENT_GROWTH_MATH ON CUSTOM.CUSTOM_EARLY_WARNING_ASSESSMENT_GROWTH_MATH (STUDENTKEY,TERMKEY);
+CREATE INDEX EW_ASSESSMENT_GROWTH_MATH ON CUSTOM.CUSTOM_EARLY_WARNING_ASSESSMENT_GROWTH_MATH (STUDENT_NUMBER,TERMKEY);
 
 INSERT INTO CUSTOM.CUSTOM_EARLY_WARNING_ASSESSMENT_GROWTH_MATH
 SELECT 
