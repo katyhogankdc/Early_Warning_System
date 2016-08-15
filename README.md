@@ -36,7 +36,7 @@ The field *CommonTerm* is an integer between 1 and 6 and can be used to align te
 |  3     | Q3            |               |               |        |
 |  4     | Q4            | TR3           | S2            | Spring |
 |  5     | Academic Year | Academic Year | Academic Year |        |
-|  6     | Full Year     | Full Year     | Full Year     |        |
+|  6     | Full Year (including summer)     | Full Year (including summer)     | Full Year (including summer)     |        |
 
 ###Example Query
 ``` SQL
