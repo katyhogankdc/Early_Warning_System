@@ -18,7 +18,7 @@ SEASON VARCHAR(10));
 CREATE INDEX EW_TERMS ON CUSTOM.CUSTOM_EARLY_WARNING_TERMS (TERMKEY);
 
 INSERT INTO CUSTOM.CUSTOM_EARLY_WARNING_TERMS (TERMKEY,TERMID,TERMNAME,YEARID,ABBREVIATION,COMMONTERM,SCHOOLID,FIRSTDAY,LASTDAY,SCHOOLYEAR4DIGIT,SEASON)
-SELECT SUB.*, -- use subquery to add assessment terms
+SELECT SUB.*, -- use subquery to add assessment terms (e.g.NWEA MAP windows)
 CASE 
 	WHEN SUB.[COMMON TERM] = 0 THEN 'Summer'
 	WHEN SUB.[COMMON TERM] = 1 THEN 'Fall'
@@ -36,6 +36,7 @@ FROM (
 		WHEN NAME LIKE '%Summer%' THEN 0 --ALWAYS MAKE THE SUMMER 0
 		WHEN T.ID LIKE '%00' THEN 6 --ALWAYS MAKE THE FULL YEAR TERM 6 (INCLUDING SUMMER)
 		WHEN PORTION = 2 AND T.NAME NOT LIKE '%Summer%' THEN 5 --Make the school year (not including summer) term equal to 5
+		--Portion is the fraction of the year assigned to the term (1/portion)
 		WHEN T.SCHOOLID != 1100 THEN ( --not KCP
 			CASE 
 				WHEN PORTION = 3 AND TERMRANK = 4 THEN 4
@@ -65,9 +66,10 @@ FROM (
 	FROM POWERSCHOOL.POWERSCHOOL_TERMS T
 	JOIN (SELECT --use the rank values to determine the common term values 
 			ID,
-			SCHOOLID,rank() over (partition by schoolid, yearid order by schoolid, lastday,firstday desc) TERMRANK 
+			SCHOOLID,
+			rank() over (partition by schoolid, yearid order by schoolid, lastday,firstday desc) TERMRANK 
 			FROM POWERSCHOOL.POWERSCHOOL_TERMS 
-			WHERE DATEDIFF(DAY,FIRSTDAY,LASTDAY)>7
+			WHERE DATEDIFF(DAY,FIRSTDAY,LASTDAY)>7 --don't remember why this is necessary, but probably because of bad data entry
 		  ) T_RANK ON T_RANK.SCHOOLID = T.SCHOOLID AND T_RANK.ID = T.ID
 	WHERE T.SCHOOLID not in (999999,2001) --exclude alumni school, and NPP
 	AND T.ID >= 2000 --only include 10-11 school year and after
