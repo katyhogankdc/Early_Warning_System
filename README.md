@@ -26,6 +26,8 @@ This DimStudent table includes dimension values related to student attributes. A
 ####DimTerms
 The DimTerms table includes dimesion values related to term attributes. Term keys are a combination of the the ID from the Powerschool Terms table and the School_Number from the Powerschool Schools table. Some terms, like *School Year* and *2015-2016* are inclusive of other terms. Be careful of your term selections so you are not multiplying measure values.
 
+To identify the *TermID* you can either query the values in the Powerschool Terms table (they are unique to each school and year), or in the Powerschool UI select a school from the dropdown menu, on the left side of the screen go to the school option, scroll down to the bottom of the page and select *Years & Terms*, find the desired school year (e.g. 2015-2016) and select *Edit Terms*. Then click the term you want the ID for and at the bottom of that screen you will see the TermID. 
+
 The field *CommonTerm* is an integer between 1 and 6 and can be used to align terms across school years with differing term structures.
 
 | Term   | Quarter       | Trimester     | Semester      | Season |
