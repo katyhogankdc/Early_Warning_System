@@ -19,7 +19,7 @@ The assessment growth value depends on the term (or season) of the record. The t
 |--------------------|-----|-----|-----|-----|-----|-----|
 | Fall               | Yes |     |     |     |     |     |
 | Winter             |     | Yes |     | Yes |     |     |
-| Spring (not added) |     |     | Yes |     |     | Yes |
+| Spring             |     |     | Yes |     |     | Yes |
 
 ####DimStudent
 This DimStudent table includes dimension values related to student attributes. All values represent a students **current** status. There is no historical information in this table. For example, the school in the SchoolName field is the school in which the student is currently enrolled.
@@ -30,15 +30,17 @@ To identify the *TermID* you can either query the values in the Powerschool Term
 
 The field *CommonTerm* is an integer between 1 and 6 and can be used to align terms across school years with differing term structures.
 
-| Term   | Quarter       | Trimester     | Semester      | Season |
-|--------|---------------|---------------|---------------|--------|
-|  0     | Summer        | Summer        | Summer        | Summer |
-|  1     | Q1            | TR1           |               | Fall   |
-|  2     | Q2            | TR2           | S1            | Winter |
-|  3     | Q3            |               |               |        |
-|  4     | Q4            | TR3           | S2            | Spring |
-|  5     | Academic Year | Academic Year | Academic Year |        |
-|  6     | Full Year (including summer)     | Full Year (including summer)     | Full Year (including summer)     |        |
+| Term   | Quarter                | Trimester                   | Semester                    | MAP    |STEP            |
+|--------|------------------------|-----------------------------|-----------------------------|--------|----------------|
+|  0     | Summer                 | Summer                      | Summer                      | Summer |                |
+|  1     | Q1                     | TR1                         |                             | Fall   |Cycle 1         |
+|  2     | Q2                     | TR2                         | S1                          | Winter |Cycle 2         |
+|  3     | Q3                     |                             |                             |        |Cycle 3*        |
+|  4     | Q4                     | TR3                         | S2                          | Spring |Cycle 3/Cycle 4 |
+|  5     | Academic Year          | Academic Year               | Academic Year               |        |Cycle 3/Cycle 4 |
+|  6     | Full Year (incl summer)| Full Year (incl summer)     | Full Year (incl summer)     |        |Cycle 3/Cycle 4 |
+
+*In years with only 3 STEP cycles Term 3 is blank 
 
 ###Example Query
 ``` SQL
