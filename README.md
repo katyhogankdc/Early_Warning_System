@@ -40,7 +40,7 @@ The field *CommonTerm* is an integer between 1 and 6 and can be used to align te
 |  5     | Academic Year          | Academic Year               | Academic Year               |        |Cycle 3/Cycle 4 |
 |  6     | Full Year (incl summer)| Full Year (incl summer)     | Full Year (incl summer)     |        |Cycle 3/Cycle 4 |
 
-*In years with only 3 STEP cycles Term 3 is blank and the last cycle of the year will always be assigned to terms 4-6 so full year comparisons can be made.
+*In years with only 3 STEP cycles Term 3 is blank and the last cycle of the year will always be assigned to terms 4-6 so full year comparisons can be made. *See the CUSTOM_EARLY_WARNING_STEP_TERM_CONVERSION table for more information.*
 
 ###Example Query
 ``` SQL
