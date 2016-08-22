@@ -47,7 +47,7 @@ LEFT JOIN (SELECT
 			COUNT(*) COUNT_INCIDENTS,
 			SUM(CASE WHEN ISREFERRAL = 'True' THEN 1 ELSE 0 END) COUNT_REFERRAL
 			FROM CUSTOM_DLINCIDENTS_RAW I
-			WHERE CATEGORY NOT LIKE 'Attendance%'
+			WHERE (CATEGORY NOT LIKE 'ATTENDANCE%' OR CATEGORY IS NULL) -- NOT LIKE operator excludes nulls, so null must be included as a special case
 			GROUP BY STUDENTSCHOOLID, ISSUETS) I ON I.STUDENTSCHOOLID = S.STUDENT_NUMBER AND I.ISSUETS = CD.DATE_VALUE
 WHERE 1=1 -- AND CD.INSESSION = 1 --removed 8/22/16 because some incidents were issued on out of session days
 AND T.YEARID >= 25 --Only include incidents and referrals from the 15-16 school year on since that was when DeansList was implemented
