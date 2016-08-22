@@ -49,7 +49,7 @@ LEFT JOIN (SELECT
 			FROM CUSTOM_DLINCIDENTS_RAW I
 			WHERE CATEGORY NOT LIKE 'Attendance%'
 			GROUP BY STUDENTSCHOOLID, ISSUETS) I ON I.STUDENTSCHOOLID = S.STUDENT_NUMBER AND I.ISSUETS = CD.DATE_VALUE
-WHERE CD.INSESSION = 1
+WHERE 1=1 -- AND CD.INSESSION = 1 --removed 8/22/16 because some incidents were issued on out of session days
 AND T.YEARID >= 25 --Only include incidents and referrals from the 15-16 school year on since that was when DeansList was implemented
 AND S.SCHOOLID != 999999
 GROUP BY S.STUDENT_NUMBER,
