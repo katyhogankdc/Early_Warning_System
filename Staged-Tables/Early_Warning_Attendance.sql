@@ -26,7 +26,7 @@ COALESCE(CAST(CAST(T.ID AS VARCHAR) + CAST(E.SCHOOLID AS VARCHAR) AS INT),-1) AS
 SUM(CASE WHEN AC.PRESENCE_STATUS_CD = 'Absent' THEN 1 ELSE 0 END) ABSENCES,
 SUM(1) MEMBERSHIP,
 SUM(CASE WHEN DESCRIPTION IN ('Absent','Absent Unexcused','Medical Unexcused','Released Early Absent','Tardy Absent') THEN 1 ELSE 0 END) UNEXCUSED_ABSENCES, --there is ap probably a better value to pull unexcused absences from so they don't need be hardcoded
-SUM(CASE WHEN DESCRIPTION LIKE 'Tardy%' THEN 1 ELSE 0 END) TARDIES --find a better field to pull tardies from instead of hard coding
+SUM(CASE WHEN DESCRIPTION LIKE 'Tardy%' AND DESCRIPTION NOT LIKE '%Absent%' THEN 1 ELSE 0 END) TARDIES --find a better field to pull tardies from instead of hard coding
 FROM POWERSCHOOL.POWERSCHOOL_STUDENTS S
 JOIN (SELECT SCHOOLID, ID AS STUDENTID, ENTRYDATE, EXITDATE, GRADE_LEVEL FROM POWERSCHOOL.POWERSCHOOL_STUDENTS S --get all student enrollemts ever entered
 		UNION
