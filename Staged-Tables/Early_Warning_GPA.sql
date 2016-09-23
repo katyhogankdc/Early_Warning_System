@@ -50,6 +50,7 @@ UNION
 
 SELECT 
   s.student_number AS STUDENT_NUMBER
+--  ,sg.schoolid
 --, LEFT(se.termid,2) AS YEARID
 , COALESCE(CAST(CAST(TC.ID AS VARCHAR) + CAST(SG.SCHOOLID AS VARCHAR) AS INT),-1) AS TERMKEY
 , SUM(gs.grade_points * sg.potentialcrhrs)/SUM(sg.potentialcrhrs) AS "GPA"
@@ -59,18 +60,19 @@ FROM [PowerSchool].[PowerSchool_STUDENTS] s
 LEFT JOIN [custom].[custom_StudentBridge] csb ON csb.student_number = s.student_number
 LEFT JOIN [custom].[custom_Students] cs ON cs.systemstudentid = csb.systemstudentid
 LEFT JOIN [PowerSchool].[PowerSchool_STOREDGRADES] sg ON sg.studentid = s.id
-LEFT JOIN [PowerSchool].[PowerSchool_SECTIONS] se ON se.id = sg.sectionid
-LEFT JOIN [PowerSchool].[PowerSchool_COURSES] c ON c.course_number = se.course_number 
+--LEFT JOIN [PowerSchool].[PowerSchool_SECTIONS] se ON se.id = sg.sectionid
+LEFT JOIN [PowerSchool].[PowerSchool_COURSES] c ON c.course_number = sg.course_number 
 LEFT JOIN [powerschool].[PowerSchool_GRADESCALEITEM] gs ON gs.name = sg.grade
-LEFT JOIN CUSTOM.CUSTOM_TERM_CONVERSIONS TC ON TC.SCHOOLID = SG.SCHOOLID AND TC.FINALGRADENAME = SG.STORECODE AND TC.YEARID = LEFT(se.termid,2)
+LEFT JOIN CUSTOM.CUSTOM_TERM_CONVERSIONS TC ON TC.SCHOOLID = SG.SCHOOLID AND TC.FINALGRADENAME = SG.STORECODE AND TC.YEARID = LEFT(sg.termid,2)
 
-WHERE gs.gradescaleid = CASE se.schoolid WHEN 1100 THEN c.gradescaleid ELSE (SELECT id FROM [powerschool].[PowerSchool_gradescaleitem] WHERE name = 'Default') END
+WHERE gs.gradescaleid = CASE sg.schoolid WHEN 1100 THEN c.gradescaleid ELSE (SELECT id FROM [powerschool].[PowerSchool_gradescaleitem] WHERE name = 'Default') END
 AND s.enroll_status = 0
 --AND sg.storecode IN ('S1','A1','A2','A3','A4','T1','T2','R1','R2','R3','Y1')
 AND sg.grade != '--'
 AND sg.excludefromgpa = 0
-    
+--and sg.termid = 2502
+--and sg.storecode = 'R1'    
 GROUP BY
-s.student_number, LEFT(se.termid,2), TC.ID, SG.SCHOOLID
+s.student_number, LEFT(sg.termid,2), TC.ID, SG.SCHOOLID
 
 HAVING SUM(sg.potentialcrhrs) > 0
