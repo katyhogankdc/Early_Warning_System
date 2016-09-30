@@ -3,7 +3,8 @@ DROP TABLE CUSTOM.CUSTOM_EARLY_WARNING_GPA
 CREATE TABLE CUSTOM.CUSTOM_EARLY_WARNING_GPA (
 STUDENT_NUMBER INT,
 TERMKEY INT,
-GPA FLOAT(5));
+GPA FLOAT(5),
+LASTUPDATED DATETIME);
 
 CREATE INDEX EW_GPA ON CUSTOM.CUSTOM_EARLY_WARNING_GPA (STUDENT_NUMBER,TERMKEY);
 
@@ -18,6 +19,7 @@ Select
 --, LEFT(sc.termid,2) AS YEARID
 , COALESCE(CAST(CAST(TC.ID AS VARCHAR) + CAST(S.SCHOOLID AS VARCHAR) AS INT),-1) AS TERMKEY
 , SUM((c.credit_hours * gs.grade_points))/SUM(c.credit_hours) AS "GPA"
+, GETDATE()
 
 FROM [powerschool].[PowerSchool_STUDENTS] s 
 LEFT JOIN [custom].[custom_StudentBridge] csb ON csb.student_number = s.student_number
@@ -54,6 +56,7 @@ SELECT
 --, LEFT(se.termid,2) AS YEARID
 , COALESCE(CAST(CAST(TC.ID AS VARCHAR) + CAST(SG.SCHOOLID AS VARCHAR) AS INT),-1) AS TERMKEY
 , SUM(gs.grade_points * sg.potentialcrhrs)/SUM(sg.potentialcrhrs) AS "GPA"
+. GETDATE()
 
     
 FROM [PowerSchool].[PowerSchool_STUDENTS] s
