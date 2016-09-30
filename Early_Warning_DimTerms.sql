@@ -19,11 +19,12 @@ CREATE INDEX EW_TERMS ON CUSTOM.CUSTOM_EARLY_WARNING_TERMS (TERMKEY);
 
 INSERT INTO CUSTOM.CUSTOM_EARLY_WARNING_TERMS (TERMKEY,TERMID,TERMNAME,YEARID,ABBREVIATION,COMMONTERM,SCHOOLID,FIRSTDAY,LASTDAY,SCHOOLYEAR4DIGIT,SEASON)
 SELECT SUB.*, -- use subquery to add assessment terms (e.g.NWEA MAP windows)
-CASE 
+CASE
 	WHEN SUB.[COMMON TERM] = 0 THEN 'Summer'
 	WHEN SUB.[COMMON TERM] = 1 THEN 'Fall'
 	WHEN SUB.[COMMON TERM] = 2 THEN 'Winter'
-	WHEN SUB.[COMMON TERM] = 4 THEN 'Spring' -- 7/11/16 -- changed from ">=" 4 to "=" 4 so that spring assessment scores are only assigned to the spring term not the full year terms as well
+	WHEN SUB.YEARID = 26 AND SUB.[COMMON TERM] = 3 THEN 'Spring'
+	WHEN SUB.[COMMON TERM] = 4 THEN 'Spring'-- 7/11/16 -- changed from ">=" 4 to "=" 4 so that spring assessment scores are only assigned to the spring term not the full year terms as well
 	ELSE '-----' END 'SEASON'
 FROM (
 	SELECT
@@ -38,7 +39,8 @@ FROM (
 		WHEN PORTION = 2 AND T.NAME NOT LIKE '%Summer%' THEN 5 --Make the school year (not including summer) term equal to 5
 		--Portion is the fraction of the year assigned to the term (1/portion)
 		WHEN T.SCHOOLID != 1100 THEN ( --not KCP
-			CASE 
+			CASE
+				WHEN YEARID = 26 THEN TERMRANK
 				WHEN PORTION = 3 AND TERMRANK = 4 THEN 4
 				WHEN PORTION = 3 AND TERMRANK != 4 THEN TERMRANK-1
 				WHEN PORTION = 4 THEN TERMRANK-1
@@ -74,7 +76,7 @@ FROM (
 	WHERE T.SCHOOLID not in (999999,2001) --exclude alumni school, and NPP
 	AND T.ID >= 2000 --only include 10-11 school year and after
 	AND NOT (T.SCHOOLID = 1100 AND T.NAME LIKE 'Semester%') --do not inlcude sememster terms for KCP, they are not real terms just used for rolling up grades
-	) SUB --only include 2010 to present to simplify term transformation - could go back to 2006 if necessary
+	) SUB--only include 2010 to present to simplify term transformation - could go back to 2006 if necessary
 --ORDER BY TERMKEY
 ;
 
