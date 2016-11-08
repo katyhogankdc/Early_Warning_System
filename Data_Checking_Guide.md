@@ -206,6 +206,11 @@ wheref.termkey= 25051100
 
 orderbys.student\_number
 
+_Notes:_
+
+_15-16 R1 3rd grade General Knowledges (Sci & SS) grades are not available in the StoredGrades table for Quest (1013), but are in the EWS._
+_15-16 R1 4th grade General Knowledges (Sci & SS) grades are not available in the StoredGrades table for Valor (1014), but are in the EWS._
+
 # MAP/STEP/F&amp;P
 
 1. Use the Student Acheivement – TestScores data source to compare records to the results of the queries below
@@ -236,7 +241,7 @@ wheref.termkey= 25051002
 
 orderbys.student\_number
 
-\*MAP growth targets to be added
+
 
 **STEP**
 ```SQL
