@@ -209,6 +209,7 @@ orderbys.student\_number
 _Notes:_
 
 _15-16 R1 3rd grade General Knowledges (Sci & SS) grades are not available in the StoredGrades table for Quest (1013), but are in the EWS._
+
 _15-16 R1 4th grade General Knowledges (Sci & SS) grades are not available in the StoredGrades table for Valor (1014), but are in the EWS._
 
 # MAP/STEP/F&amp;P
@@ -244,7 +245,7 @@ orderbys.student\_number
 
 
 **STEP**
-```SQL
+
 SELECT
 
 S.STUDENT\_NUMBER,
@@ -270,8 +271,8 @@ WHERET.SCHOOLYEAR4DIGIT= 2016
 ANDT.SCHOOLID= 1012
 
 ORDERBYS.STUDENT\_NUMBER
-```
-        **F&P**
+
+**F&P**
 
 SELECT
 
