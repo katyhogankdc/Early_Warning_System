@@ -74,31 +74,21 @@ _Checking number of OSS and days of OSS:_
 1. On the top left select Show By Resolution
 2. On the top right click on the Export button and choose the export type
 
+```SQL
 SELECT
-
 F.STUDENT\_NUMBER,
-
 S.FULLNAME,
-
 [COUNT\_OSS],
-
 [DAYS\_OF\_OSS],
-
 [NUM\_OF\_INCIDENTS],
-
 [NUM\_OF\_REFERRAL]
-
 FROM[CUSTOM].[CUSTOM\_EARLY\_WARNING\_FACT]F
-
 JOIN[CUSTOM].[CUSTOM\_EARLY\_WARNING\_STUDENTS]SONS.STUDENTKEY=F.STUDENTKEY
-
 JOIN[CUSTOM].[CUSTOM\_EARLY\_WARNING\_TERMS]TONT.TERMKEY=F.TERMKEY
-
 WHEREF.TERMKEY= 25001002
-
 AND[REPLACE FIELD HERE]&gt;0
-
 ORDERBYSTUDENT\_NUMBER
+```
 
 _Notes:_
 
@@ -188,23 +178,17 @@ grade\_points
 2. Calculate GPA using the formula GPA = SUM((credit\_hours \* grade\_points))/SUM(credit\_hours)
 3. Compare with query below
 
+```SQL
 SELECT
-
 s.student\_number,
-
 f.gpa,
-
 f.num\_ds\_and\_fs
-
 FROM[CUSTOM].[CUSTOM\_EARLY\_WARNING\_FACT]F
-
 JOIN[custom].[CUSTOM\_EARLY\_WARNING\_STUDENTS]SONS.STUDENTKEY=F.STUDENTKEY
-
 JOIN[custom].[CUSTOM\_EARLY\_WARNING\_TERMS]TONT.TERMKEY=F.TERMKEY
-
 wheref.termkey= 25051100
-
 orderbys.student\_number
+```
 
 _Notes:_
 
@@ -218,86 +202,56 @@ _15-16 R1 4th grade General Knowledges (Sci & SS) grades are not available in th
 
 **MAP\***
 
+```SQL
 SELECT
-
 s.student\_number,
-
 t.season,
-
 [SCALESCORE\_MATH],
-
 [PERCENTILESCORE\_MATH],
-
 [SCALESCORE\_READING],
-
 [PERCENTILESCORE\_MATH]
-
 FROM[CUSTOM].[CUSTOM\_EARLY\_WARNING\_FACT]F
-
 JOIN[custom].[CUSTOM\_EARLY\_WARNING\_STUDENTS]SONS.STUDENTKEY=F.STUDENTKEY
-
 JOIN[custom].[CUSTOM\_EARLY\_WARNING\_TERMS]TONT.TERMKEY=F.TERMKEY
-
 wheref.termkey= 25051002
-
 orderbys.student\_number
-
+```
 
 
 **STEP**
 
+```SQL
 SELECT
-
 S.STUDENT\_NUMBER,
-
 T.SEASON,
-
 TERMNAME,
-
 TERMID,
-
 [STEP\_LEVEL],
-
 [STEP\_PROFICIENCY]
-
 FROM[CUSTOM].[CUSTOM\_EARLY\_WARNING\_FACT]F
-
 JOIN[CUSTOM].[CUSTOM\_EARLY\_WARNING\_STUDENTS]SONS.STUDENTKEY=F.STUDENTKEY
-
 JOIN[CUSTOM].[CUSTOM\_EARLY\_WARNING\_TERMS]TONT.TERMKEY=F.TERMKEY
-
 WHERET.SCHOOLYEAR4DIGIT= 2016
-
 ANDT.SCHOOLID= 1012
-
 ORDERBYS.STUDENT\_NUMBER
+```
 
 **F&P**
 
+```SQL
 SELECT
-
 S.STUDENT\_NUMBER,
-
 T.SEASON,
-
 TERMNAME,
-
 TERMID,
-
 [FP LEVEL],
-
 [TARGET LEVEL]
-
 FROM[CUSTOM].[CUSTOM\_EARLY\_WARNING\_FACT]F
-
 JOIN[CUSTOM].[CUSTOM\_EARLY\_WARNING\_STUDENTS]SONS.STUDENTKEY=F.STUDENTKEY
-
 JOIN[CUSTOM].[CUSTOM\_EARLY\_WARNING\_TERMS]TONT.TERMKEY=F.TERMKEY
-
 WHERET.SCHOOLYEAR4DIGIT= 2016
-
 ANDT.SCHOOLID= 1004
-
 ORDERBYS.STUDENT\_NUMBER
+```
 
 \*F&amp;P level assigned to a term is the last entry that falls within that term
